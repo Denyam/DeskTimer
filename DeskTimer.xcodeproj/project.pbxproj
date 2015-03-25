@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		39D696E01AC1A13800142705 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 39D696DF1AC1A13800142705 /* LICENSE */; };
 		39E484661AC19F9500FE8A57 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E484651AC19F9500FE8A57 /* AppDelegate.m */; };
 		39E484681AC19F9500FE8A57 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E484671AC19F9500FE8A57 /* main.m */; };
 		39E4846A1AC19F9500FE8A57 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 39E484691AC19F9500FE8A57 /* Images.xcassets */; };
@@ -25,6 +26,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		39D696DF1AC1A13800142705 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		39E4845F1AC19F9500FE8A57 /* DeskTimer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DeskTimer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		39E484631AC19F9500FE8A57 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		39E484641AC19F9500FE8A57 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -58,6 +60,7 @@
 		39E484561AC19F9500FE8A57 = {
 			isa = PBXGroup;
 			children = (
+				39D696DF1AC1A13800142705 /* LICENSE */,
 				39E484611AC19F9500FE8A57 /* DeskTimer */,
 				39E484751AC19F9500FE8A57 /* DeskTimerTests */,
 				39E484601AC19F9500FE8A57 /* Products */,
@@ -191,6 +194,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				39D696E01AC1A13800142705 /* LICENSE in Resources */,
 				39E4846A1AC19F9500FE8A57 /* Images.xcassets in Resources */,
 				39E4846D1AC19F9500FE8A57 /* MainMenu.xib in Resources */,
 			);
