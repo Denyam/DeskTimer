@@ -24,8 +24,9 @@
 #import <Cocoa/Cocoa.h>
 #import <XCTest/XCTest.h>
 
-@interface DeskTimerTests : XCTestCase
+#import "Timer.h"
 
+@interface DeskTimerTests : XCTestCase
 @end
 
 @implementation DeskTimerTests
@@ -40,16 +41,35 @@
     [super tearDown];
 }
 
-- (void)testExample {
-    // This is an example of a functional test case.
-    XCTAssert(YES, @"Pass");
-}
-
-- (void)testPerformanceExample {
-    // This is an example of a performance test case.
-    [self measureBlock:^{
-        // Put the code you want to measure the time of here.
-    }];
+- (void)testTimerTimeLeft
+{
+	static const double secondsInMinute = 60;
+	static const double secondsInHour = 3600;
+	static const NSUInteger seconds = 10;
+	static const NSUInteger minutes = 1;
+	static const NSUInteger hours = 2;
+	
+	Timer *timer = [Timer new];
+	[timer setHours:0 minutes:0 seconds:seconds];
+	
+	XCTAssertEqual(seconds, timer.remainingTime);
+	XCTAssertEqual(seconds, timer.remainingSeconds);
+	XCTAssertEqual(0, timer.remainingMinutes);
+	XCTAssertEqual(0, timer.remainingHours);
+	
+	Timer *minuteTimer = [Timer new];
+	[minuteTimer setHours:0 minutes:minutes seconds:0];
+	XCTAssertEqual(minutes * secondsInMinute, minuteTimer.remainingTime);
+	XCTAssertEqual(0, minuteTimer.remainingSeconds);
+	XCTAssertEqual(minutes, minuteTimer.remainingMinutes);
+	XCTAssertEqual(0, minuteTimer.remainingHours);
+	
+	Timer *hourTimer = [Timer new];
+	[hourTimer setHours:hours minutes:0 seconds:0];
+	XCTAssertEqual(hours * secondsInHour, hourTimer.remainingTime);
+	XCTAssertEqual(0, hourTimer.remainingSeconds);
+	XCTAssertEqual(0, hourTimer.remainingMinutes);
+	XCTAssertEqual(hours, hourTimer.remainingHours);
 }
 
 @end
