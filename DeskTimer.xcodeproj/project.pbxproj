@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		39560C561AC2EEA600470458 /* Timer.m in Sources */ = {isa = PBXBuildFile; fileRef = 39560C551AC2EEA600470458 /* Timer.m */; };
+		39560C5A1AC36CAB00470458 /* TimerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39560C591AC36CAB00470458 /* TimerController.m */; };
 		39D696E01AC1A13800142705 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 39D696DF1AC1A13800142705 /* LICENSE */; };
 		39E484661AC19F9500FE8A57 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E484651AC19F9500FE8A57 /* AppDelegate.m */; };
 		39E484681AC19F9500FE8A57 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E484671AC19F9500FE8A57 /* main.m */; };
@@ -29,6 +30,8 @@
 /* Begin PBXFileReference section */
 		39560C541AC2EEA600470458 /* Timer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Timer.h; sourceTree = "<group>"; };
 		39560C551AC2EEA600470458 /* Timer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Timer.m; sourceTree = "<group>"; };
+		39560C581AC36CAB00470458 /* TimerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimerController.h; sourceTree = "<group>"; };
+		39560C591AC36CAB00470458 /* TimerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimerController.m; sourceTree = "<group>"; };
 		39D696DF1AC1A13800142705 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		39E4845F1AC19F9500FE8A57 /* DeskTimer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DeskTimer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		39E484631AC19F9500FE8A57 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -69,6 +72,15 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		39560C571AC36C2700470458 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				39560C581AC36CAB00470458 /* TimerController.h */,
+				39560C591AC36CAB00470458 /* TimerController.m */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
 		39E484561AC19F9500FE8A57 = {
 			isa = PBXGroup;
 			children = (
@@ -91,6 +103,7 @@
 		39E484611AC19F9500FE8A57 /* DeskTimer */ = {
 			isa = PBXGroup;
 			children = (
+				39560C571AC36C2700470458 /* Controllers */,
 				39560C531AC2EE6500470458 /* Model */,
 				39E484641AC19F9500FE8A57 /* AppDelegate.h */,
 				39E484651AC19F9500FE8A57 /* AppDelegate.m */,
@@ -228,6 +241,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				39560C561AC2EEA600470458 /* Timer.m in Sources */,
+				39560C5A1AC36CAB00470458 /* TimerController.m in Sources */,
 				39E484681AC19F9500FE8A57 /* main.m in Sources */,
 				39E484661AC19F9500FE8A57 /* AppDelegate.m in Sources */,
 			);
