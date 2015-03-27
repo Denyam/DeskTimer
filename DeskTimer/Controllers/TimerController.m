@@ -25,7 +25,9 @@
 
 #import "Timer.h"
 
-@interface TimerController ()
+#import "DeskTimer-Swift.h"
+
+@interface TimerController () <NSMenuDelegate>
 @property (nonatomic) IBOutlet NSButton *startButton;
 @property (nonatomic) IBOutlet NSButton *stopButton;
 @property (nonatomic) IBOutlet NSTextField *secondsField;
@@ -34,9 +36,11 @@
 @property (nonatomic) IBOutlet NSNumberFormatter *secondsFormatter;
 @property (nonatomic) IBOutlet NSNumberFormatter *minutesFormatter;
 @property (nonatomic) IBOutlet NSNumberFormatter *hoursFormatter;
+@property (nonatomic) IBOutlet NSPopUpButton *soundSelectionButton;
 
 - (IBAction)startTimer:(id)sender;
 - (IBAction)stopTimer:(id)sender;
+- (IBAction)selectSound:(id)sender;
 
 @property (nonatomic) Timer *timer;
 
@@ -47,6 +51,9 @@
 
 - (void)adjustFieldValue:(NSTextField *)textField;
 - (void)configureFormatter:(NSNumberFormatter *)formatter;
+
+@property (nonatomic) NSArray *soundNames;
+@property (nonatomic) NSUInteger selectedSoundIndex;
 @end
 
 
@@ -62,6 +69,11 @@
 	[self configureFormatter:self.secondsFormatter];
 	[self configureFormatter:self.minutesFormatter];
 	[self configureFormatter:self.hoursFormatter];
+	
+	if (self.soundNames.count)
+	{
+		self.soundSelectionButton.title = self.soundNames[self.selectedSoundIndex];
+	}
 }
 
 - (void)startTimer:(id)sender
@@ -83,6 +95,11 @@
 	[self.timer stop];
 }
 
+- (void)selectSound:(id)sender
+{
+	self.selectedSoundIndex = self.soundSelectionButton.indexOfSelectedItem;
+}
+
 - (void)timerDidTick:(NSNotification *)notification
 {
 	self.secondsField.integerValue = self.timer.remainingSeconds;
@@ -100,9 +117,13 @@
 
 - (void)triggerAlarm
 {
-	NSSound *sound = [NSSound soundNamed:@"Basso"];
-	sound.loops = YES;
-	[sound play];
+	NSSound *sound = nil;
+	if (self.soundNames.count)
+	{
+		sound = [NSSound soundNamed:self.soundNames[self.selectedSoundIndex]];
+		sound.loops = YES;
+		[sound play];
+	}
 	
 	NSAlert *alert = [NSAlert new];
 	alert.messageText = NSLocalizedString(@"Time elapsed!", nil);
@@ -149,6 +170,31 @@
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(timerDidTick:) name:kTimerDidTickNotification object:_timer];
 	}
 	return _timer;
+}
+
+- (NSArray *)soundNames
+{
+	if (!_soundNames)
+	{
+		_soundNames = [SoundsList sounds];
+	}
+	return _soundNames;
+}
+
+#pragma mark - Menu Delegate
+
+- (NSInteger)numberOfItemsInMenu:(NSMenu *)menu
+{
+	return self.soundNames.count;
+}
+
+- (BOOL)menu:(NSMenu *)menu updateItem:(NSMenuItem *)item atIndex:(NSInteger)index shouldCancel:(BOOL)shouldCancel
+{
+	BOOL result = YES;
+	
+	item.title = self.soundNames[index];
+	
+	return result;
 }
 
 @end
