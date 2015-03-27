@@ -82,8 +82,26 @@ NSString *const kTimerDidFireNotification = @"TimerDidFireNotification";
 
 - (void)timerDidTick:(NSTimer *)timer
 {
-	self.remainingTime = self.internalTimer.fireDate.timeIntervalSinceNow;
+	NSTimeInterval remainingTime = self.internalTimer.fireDate.timeIntervalSinceNow;
+	if (remainingTime < 0)
+	{
+		self.remainingTime = 0;
+		[self.secondsTimer invalidate];
+	}
+	else
+	{
+		self.remainingTime = remainingTime;
+	}
+
 	[[NSNotificationCenter defaultCenter] postNotificationName:kTimerDidTickNotification object:self];
+
+	if (remainingTime < 0)
+	{
+		if ([self.internalTimer isValid])
+		{
+			[self.internalTimer fire];
+		}
+	}
 }
 
 - (void)timerDidFire:(NSTimer *)timer
