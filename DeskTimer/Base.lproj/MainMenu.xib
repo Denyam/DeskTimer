@@ -682,7 +682,9 @@
                             <constraint firstAttribute="width" constant="30" id="lcq-jh-Ler"/>
                         </constraints>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="right" title="0" drawsBackground="YES" id="4ZQ-gW-e8K">
-                            <numberFormatter key="formatter" formatterBehavior="default10_4" usesGroupingSeparator="NO" minimumIntegerDigits="0" maximumIntegerDigits="42" id="7UA-Yx-eZH"/>
+                            <numberFormatter key="formatter" formatterBehavior="default10_4" localizesFormat="NO" usesGroupingSeparator="NO" minimumIntegerDigits="0" maximumIntegerDigits="42" id="7UA-Yx-eZH">
+                                <real key="minimum" value="0.0"/>
+                            </numberFormatter>
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -694,7 +696,10 @@
                             <constraint firstAttribute="width" constant="30" id="9ex-td-aRv"/>
                         </constraints>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="right" title="0" drawsBackground="YES" id="oKn-HP-Gjy">
-                            <numberFormatter key="formatter" formatterBehavior="default10_4" usesGroupingSeparator="NO" minimumIntegerDigits="0" maximumIntegerDigits="42" id="Zyb-pu-9SI"/>
+                            <numberFormatter key="formatter" formatterBehavior="default10_4" localizesFormat="NO" usesGroupingSeparator="NO" minimumIntegerDigits="0" maximumIntegerDigits="42" id="Zyb-pu-9SI">
+                                <real key="minimum" value="0.0"/>
+                                <real key="maximum" value="59"/>
+                            </numberFormatter>
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -706,7 +711,13 @@
                             <constraint firstAttribute="width" constant="30" id="byL-W0-Iao"/>
                         </constraints>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="right" title="0" placeholderString="" drawsBackground="YES" id="ial-3W-oVr">
-                            <numberFormatter key="formatter" formatterBehavior="default10_4" usesGroupingSeparator="NO" minimumIntegerDigits="0" maximumIntegerDigits="42" id="DRx-WV-hyg"/>
+                            <numberFormatter key="formatter" formatterBehavior="default10_4" localizesFormat="NO" usesGroupingSeparator="NO" minimumIntegerDigits="0" maximumIntegerDigits="42" id="DRx-WV-hyg">
+                                <real key="minimum" value="0.0"/>
+                                <real key="maximum" value="59"/>
+                                <metadata>
+                                    <real key="inspectorSampleValue" value="67"/>
+                                </metadata>
+                            </numberFormatter>
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -780,14 +791,11 @@
                         <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="b2K-bf-g8O">
                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="menu"/>
-                            <menu key="menu" id="gMD-wl-VmS">
-                                <connections>
-                                    <outlet property="delegate" destination="o4d-An-NyI" id="n2g-U4-kID"/>
-                                </connections>
-                            </menu>
+                            <menu key="menu" id="gMD-wl-VmS"/>
                         </popUpButtonCell>
                         <connections>
                             <action selector="selectSound:" target="o4d-An-NyI" id="DX5-YR-K1A"/>
+                            <binding destination="YVI-Bh-9gC" name="content" keyPath="arrangedObjects" id="tEz-Gj-jnl"/>
                         </connections>
                     </popUpButton>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="6W9-SD-GXv">
@@ -860,5 +868,10 @@
                 <outlet property="window" destination="QvC-M9-y7g" id="QiD-GB-H3a"/>
             </connections>
         </customObject>
+        <arrayController id="YVI-Bh-9gC">
+            <connections>
+                <binding destination="o4d-An-NyI" name="contentArray" keyPath="soundNames" id="KpY-cE-GuW"/>
+            </connections>
+        </arrayController>
     </objects>
 </document>

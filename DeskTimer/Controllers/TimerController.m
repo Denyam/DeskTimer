@@ -27,7 +27,7 @@
 
 #import "DeskTimer-Swift.h"
 
-@interface TimerController () <NSMenuDelegate>
+@interface TimerController ()
 @property (nonatomic) IBOutlet NSButton *startButton;
 @property (nonatomic) IBOutlet NSButton *stopButton;
 @property (nonatomic) IBOutlet NSTextField *secondsField;
@@ -102,9 +102,9 @@
 
 - (void)timerDidTick:(NSNotification *)notification
 {
-	self.secondsField.integerValue = self.timer.remainingSeconds;
-	self.minutesField.integerValue = self.timer.remainingMinutes;
-	self.hoursField.integerValue = self.timer.remainingHours;
+	self.secondsField.stringValue = [self.secondsField.formatter stringFromNumber:@(self.timer.remainingSeconds)];
+	self.minutesField.stringValue = [self.secondsField.formatter stringFromNumber:@(self.timer.remainingMinutes)];
+	self.hoursField.stringValue = [self.secondsField.formatter stringFromNumber:@(self.timer.remainingHours)];
 }
 
 - (void)timerDidFire:(NSNotification *)notification
@@ -144,7 +144,7 @@
 	{
 		value = 0;
 	}
-	textField.integerValue = value;
+	textField.stringValue = [textField.formatter stringFromNumber:@(value)];
 }
 
 - (void)configureFormatter:(NSNumberFormatter *)formatter
@@ -152,12 +152,12 @@
 	if (formatter != self.hoursFormatter)
 	{
 		formatter.format = @"00";
-		formatter.maximum = @59;
+		formatter.formatWidth = 2;
+		formatter.paddingCharacter = @"0";
 	}
 	formatter.allowsFloats = NO;
 	formatter.maximumSignificantDigits = 2;
 	formatter.maximumIntegerDigits = 2;
-	formatter.minimum = @0;
 }
 
 - (Timer *)timer
@@ -179,22 +179,6 @@
 		_soundNames = [SoundsList sounds];
 	}
 	return _soundNames;
-}
-
-#pragma mark - Menu Delegate
-
-- (NSInteger)numberOfItemsInMenu:(NSMenu *)menu
-{
-	return self.soundNames.count;
-}
-
-- (BOOL)menu:(NSMenu *)menu updateItem:(NSMenuItem *)item atIndex:(NSInteger)index shouldCancel:(BOOL)shouldCancel
-{
-	BOOL result = YES;
-	
-	item.title = self.soundNames[index];
-	
-	return result;
 }
 
 @end
