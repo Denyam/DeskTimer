@@ -33,19 +33,24 @@ class SoundsList: NSObject
 		let soundDirPath = "/System/Library/Sounds";
 		let recognisedSoundExtension = "aiff";
 		
-		var url = NSURL.fileURLWithPath(soundDirPath, isDirectory: true)!;
+		let url = NSURL.fileURLWithPath(soundDirPath, isDirectory: true);
 		
-		var errorPtr = NSErrorPointer();
-		var possibleDirList = NSFileManager.defaultManager().contentsOfDirectoryAtURL(url, includingPropertiesForKeys: [], options: NSDirectoryEnumerationOptions(), error: errorPtr);
+		let errorPtr = NSErrorPointer();
+		var possibleDirList: [AnyObject]?
+		do {
+			possibleDirList = try NSFileManager.defaultManager().contentsOfDirectoryAtURL(url, includingPropertiesForKeys: [], options: NSDirectoryEnumerationOptions())
+		} catch let error as NSError {
+			errorPtr.memory = error
+			possibleDirList = nil
+		};
 		
 		if let dirList = possibleDirList {
-			for fileUrl in dirList as [NSURL] {
-				var fileNameExtension = fileUrl.pathExtension ?? "";
+			for fileUrl in dirList as! [NSURL] {
+				let fileNameExtension = fileUrl.pathExtension ?? "";
 				
 				if fileNameExtension == recognisedSoundExtension {
-					var possibleFileName = fileUrl.lastPathComponent;
-					if let fileName = possibleFileName {
-						result.append(fileName.stringByDeletingPathExtension);
+					if let fileName = fileUrl.URLByDeletingPathExtension?.lastPathComponent {
+						result.append(fileName);
 					}
 				}
 			}
