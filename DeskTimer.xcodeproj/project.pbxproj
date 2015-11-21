@@ -35,6 +35,7 @@
 		39560C591AC36CAB00470458 /* TimerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimerController.m; sourceTree = "<group>"; };
 		39560C5C1AC5B9A700470458 /* SoundsList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundsList.swift; sourceTree = "<group>"; };
 		39560C5E1AC5DD0100470458 /* DeskTimer-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DeskTimer-Bridging-Header.h"; sourceTree = "<group>"; };
+		39AE47C81BFE8C0000352A6F /* DeskTimer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = DeskTimer.entitlements; sourceTree = "<group>"; };
 		39D696DF1AC1A13800142705 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		39E4845F1AC19F9500FE8A57 /* DeskTimer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DeskTimer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		39E484631AC19F9500FE8A57 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -108,6 +109,7 @@
 		39E484611AC19F9500FE8A57 /* DeskTimer */ = {
 			isa = PBXGroup;
 			children = (
+				39AE47C81BFE8C0000352A6F /* DeskTimer.entitlements */,
 				39560C571AC36C2700470458 /* Controllers */,
 				39560C531AC2EE6500470458 /* Model */,
 				39E484641AC19F9500FE8A57 /* AppDelegate.h */,
@@ -196,6 +198,11 @@
 				TargetAttributes = {
 					39E4845E1AC19F9500FE8A57 = {
 						CreatedOnToolsVersion = 6.2;
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 1;
+							};
+						};
 					};
 					39E484711AC19F9500FE8A57 = {
 						CreatedOnToolsVersion = 6.2;
@@ -366,6 +373,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = DeskTimer/DeskTimer.entitlements;
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = DeskTimer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
@@ -381,6 +389,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = DeskTimer/DeskTimer.entitlements;
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = DeskTimer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
