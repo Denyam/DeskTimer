@@ -10,6 +10,8 @@
 		39560C561AC2EEA600470458 /* Timer.m in Sources */ = {isa = PBXBuildFile; fileRef = 39560C551AC2EEA600470458 /* Timer.m */; };
 		39560C5A1AC36CAB00470458 /* TimerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39560C591AC36CAB00470458 /* TimerController.m */; };
 		39560C5D1AC5B9A700470458 /* SoundsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39560C5C1AC5B9A700470458 /* SoundsList.swift */; };
+		39AE48271C00674600352A6F /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 39AE48251C00674600352A6F /* Model.xcdatamodeld */; };
+		39AE48291C006B0300352A6F /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39AE48281C006B0300352A6F /* CoreData.framework */; };
 		39D696E01AC1A13800142705 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 39D696DF1AC1A13800142705 /* LICENSE */; };
 		39E484661AC19F9500FE8A57 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E484651AC19F9500FE8A57 /* AppDelegate.m */; };
 		39E484681AC19F9500FE8A57 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E484671AC19F9500FE8A57 /* main.m */; };
@@ -36,6 +38,8 @@
 		39560C5C1AC5B9A700470458 /* SoundsList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundsList.swift; sourceTree = "<group>"; };
 		39560C5E1AC5DD0100470458 /* DeskTimer-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DeskTimer-Bridging-Header.h"; sourceTree = "<group>"; };
 		39AE47C81BFE8C0000352A6F /* DeskTimer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = DeskTimer.entitlements; sourceTree = "<group>"; };
+		39AE48261C00674600352A6F /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		39AE48281C006B0300352A6F /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		39D696DF1AC1A13800142705 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		39E4845F1AC19F9500FE8A57 /* DeskTimer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DeskTimer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		39E484631AC19F9500FE8A57 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -54,6 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				39AE48291C006B0300352A6F /* CoreData.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,6 +75,7 @@
 		39560C531AC2EE6500470458 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				39AE48251C00674600352A6F /* Model.xcdatamodeld */,
 				39560C5E1AC5DD0100470458 /* DeskTimer-Bridging-Header.h */,
 				39560C541AC2EEA600470458 /* Timer.h */,
 				39560C551AC2EEA600470458 /* Timer.m */,
@@ -87,12 +93,21 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
+		39AE482A1C006B0A00352A6F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				39AE48281C006B0300352A6F /* CoreData.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		39E484561AC19F9500FE8A57 = {
 			isa = PBXGroup;
 			children = (
 				39D696DF1AC1A13800142705 /* LICENSE */,
 				39E484611AC19F9500FE8A57 /* DeskTimer */,
 				39E484751AC19F9500FE8A57 /* DeskTimerTests */,
+				39AE482A1C006B0A00352A6F /* Frameworks */,
 				39E484601AC19F9500FE8A57 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -259,6 +274,7 @@
 				39E484681AC19F9500FE8A57 /* main.m in Sources */,
 				39560C5D1AC5B9A700470458 /* SoundsList.swift in Sources */,
 				39E484661AC19F9500FE8A57 /* AppDelegate.m in Sources */,
+				39AE48271C00674600352A6F /* Model.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -377,6 +393,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = DeskTimer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_INSTALL_OBJC_HEADER = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "DeskTimer/Model/DeskTimer-Bridging-Header.h";
@@ -393,6 +410,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = DeskTimer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_INSTALL_OBJC_HEADER = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "DeskTimer/Model/DeskTimer-Bridging-Header.h";
@@ -466,6 +484,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		39AE48251C00674600352A6F /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				39AE48261C00674600352A6F /* Model.xcdatamodel */,
+			);
+			currentVersion = 39AE48261C00674600352A6F /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 39E484571AC19F9500FE8A57 /* Project object */;
 }
