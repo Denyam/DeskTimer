@@ -26,6 +26,7 @@
 #import "Timer.h"
 
 #import "DeskTimer-Swift.h"
+#import "AppDelegate.h"
 
 @interface TimerController ()
 @property (nonatomic) IBOutlet NSButton *startButton;
@@ -42,7 +43,9 @@
 - (IBAction)stopTimer:(id)sender;
 - (IBAction)selectSound:(id)sender;
 
-@property (nonatomic) Timer *timer;
+@property (nonatomic) NSMutableArray<NSManagedObject *> *timerModels;
+@property (nonatomic) NSMutableArray<Timer *> *timers;
+@property (nonatomic, readonly) Timer *timer;
 
 - (void)timerDidFire:(NSNotification *)notification;
 - (void)timerDidTick:(NSNotification *)notification;
@@ -54,6 +57,9 @@
 
 @property (nonatomic) NSArray *soundNames;
 @property (nonatomic) NSUInteger selectedSoundIndex;
+
+- (Timer *)timerFromModel:(NSManagedObject *)timerModel;
+- (void)changeTimerTime;
 @end
 
 
@@ -74,6 +80,10 @@
 	{
 		self.soundSelectionButton.title = self.soundNames[self.selectedSoundIndex];
 	}
+    
+    self.hoursField.integerValue = self.timer.remainingHours;
+    self.minutesField.integerValue = self.timer.remainingMinutes;
+    self.secondsField.integerValue = self.timer.remainingSeconds;
 }
 
 - (void)startTimer:(id)sender
@@ -84,7 +94,8 @@
 	
 	self.startButton.enabled = NO;
 	self.stopButton.enabled = YES;
-	[self.timer setHours:self.hoursField.integerValue minutes:self.minutesField.integerValue seconds:self.secondsField.integerValue];
+    [self changeTimerTime];
+	
 	[self.timer start];
 }
 
@@ -160,16 +171,48 @@
 	formatter.maximumIntegerDigits = 2;
 }
 
+- (NSMutableArray *)timers
+{
+	if (!_timers)
+	{
+		_timers = [NSMutableArray new];
+        
+        if (!self.timerModels.count)
+        {
+            NSManagedObjectContext *context = [[NSApp delegate] managedObjectContext];
+            
+            NSEntityDescription *entity = [NSEntityDescription entityForName:@"Timer" inManagedObjectContext:context];
+            NSManagedObject *timerModel = [[NSManagedObject alloc] initWithEntity:entity insertIntoManagedObjectContext:context];
+            [timerModel setValue:@(0) forKey:@"interval"];
+            
+            [self.timerModels addObject:timerModel];
+        }
+        
+        Timer *timer = [self timerFromModel:self.timerModels.firstObject];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(timerDidFire:) name:kTimerDidFireNotification object:timer];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(timerDidTick:) name:kTimerDidTickNotification object:timer];
+        
+        [_timers addObject:timer];
+	}
+	return _timers;
+}
+
+- (NSMutableArray *)timerModels
+{
+    if (!_timerModels)
+    {
+        NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Timer"];
+        NSManagedObjectContext *context = [[NSApp delegate] managedObjectContext];
+        
+        NSError *fetchError = nil;
+        _timerModels = [context executeFetchRequest:fetchRequest error:&fetchError].mutableCopy;
+    }
+    return _timerModels;
+}
+
 - (Timer *)timer
 {
-	if (!_timer)
-	{
-		_timer = [Timer new];
-		
-		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(timerDidFire:) name:kTimerDidFireNotification object:_timer];
-		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(timerDidTick:) name:kTimerDidTickNotification object:_timer];
-	}
-	return _timer;
+	return self.timers.firstObject;
 }
 
 - (NSArray *)soundNames
@@ -179,6 +222,27 @@
 		_soundNames = [SoundsList sounds];
 	}
 	return _soundNames;
+}
+
+- (Timer *)timerFromModel:(NSManagedObject *)timerModel
+{
+	Timer *result = nil;
+	if ([timerModel.entity.name isEqualToString:NSStringFromClass([Timer class])])
+	{
+		result = [Timer new];
+        NSNumber *seconds = [timerModel valueForKey:@"interval"];
+        if (seconds)
+        {
+            [result setHours:0 minutes:0 seconds:seconds.unsignedIntegerValue];
+        }
+	}
+	return result;
+}
+
+- (void)changeTimerTime
+{
+    [self.timer setHours:self.hoursField.integerValue minutes:self.minutesField.integerValue seconds:self.secondsField.integerValue];
+    [self.timerModels.firstObject setValue:@(self.timer.remainingTime) forKey:@"interval"];
 }
 
 @end
