@@ -11,13 +11,7 @@ struct ContentView: View {
     @StateObject var timers = DTimerCollection()
     
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
-        }
-        .padding()
+        TimerView(timer: DTimer())
     }
 }
 

@@ -10,12 +10,26 @@ import SwiftUI
 struct TimerView: View {
     @ObservedObject var timer: DTimer
     
-    @State private var hours = 0
-    @State private var minutes = 0
-    @State private var seconds = 0
-
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            HStack {
+                TextField("Hours", value: $timer.remainingHours, formatter: NumberFormatter())
+                    .disabled(timer.isRunning)
+                
+                Text(":")
+                TextField("Minutes", value: $timer.remainingMinutes, formatter: NumberFormatter())
+                    .disabled(timer.isRunning)
+                
+                Text(":")
+                TextField("Seconds", value: $timer.remainingSeconds, formatter: NumberFormatter())
+                    .disabled(timer.isRunning)
+                
+            }
+            
+            Button("Start") {
+                timer.start()
+            }
+        }
     }
 }
 
