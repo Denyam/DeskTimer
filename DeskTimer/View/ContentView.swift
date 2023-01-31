@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject var timers = DTimerCollection()
+    
     var body: some View {
         VStack {
             Image(systemName: "globe")

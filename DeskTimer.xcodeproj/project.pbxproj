@@ -11,6 +11,9 @@
 		39C375642989966600F4BC4B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39C375632989966600F4BC4B /* ContentView.swift */; };
 		39C375662989966700F4BC4B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 39C375652989966700F4BC4B /* Assets.xcassets */; };
 		39C375692989966700F4BC4B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 39C375682989966700F4BC4B /* Preview Assets.xcassets */; };
+		39C375722989973700F4BC4B /* DTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39C375712989973700F4BC4B /* DTimer.swift */; };
+		39C37574298997A700F4BC4B /* DTimerCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39C37573298997A700F4BC4B /* DTimerCollection.swift */; };
+		39C3757929899B1600F4BC4B /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39C3757829899B1600F4BC4B /* TimerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +23,9 @@
 		39C375652989966700F4BC4B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		39C375682989966700F4BC4B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		39C3756A2989966700F4BC4B /* DeskTimer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DeskTimer.entitlements; sourceTree = "<group>"; };
+		39C375712989973700F4BC4B /* DTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTimer.swift; sourceTree = "<group>"; };
+		39C37573298997A700F4BC4B /* DTimerCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTimerCollection.swift; sourceTree = "<group>"; };
+		39C3757829899B1600F4BC4B /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,8 +58,9 @@
 		39C375602989966600F4BC4B /* DeskTimer */ = {
 			isa = PBXGroup;
 			children = (
+				39C3757529899AB200F4BC4B /* View */,
+				39C375702989972700F4BC4B /* Entities */,
 				39C375612989966600F4BC4B /* DeskTimerApp.swift */,
-				39C375632989966600F4BC4B /* ContentView.swift */,
 				39C375652989966700F4BC4B /* Assets.xcassets */,
 				39C3756A2989966700F4BC4B /* DeskTimer.entitlements */,
 				39C375672989966700F4BC4B /* Preview Content */,
@@ -67,6 +74,24 @@
 				39C375682989966700F4BC4B /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		39C375702989972700F4BC4B /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				39C375712989973700F4BC4B /* DTimer.swift */,
+				39C37573298997A700F4BC4B /* DTimerCollection.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		39C3757529899AB200F4BC4B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				39C375632989966600F4BC4B /* ContentView.swift */,
+				39C3757829899B1600F4BC4B /* TimerView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,7 +164,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				39C3757929899B1600F4BC4B /* TimerView.swift in Sources */,
 				39C375642989966600F4BC4B /* ContentView.swift in Sources */,
+				39C375722989973700F4BC4B /* DTimer.swift in Sources */,
+				39C37574298997A700F4BC4B /* DTimerCollection.swift in Sources */,
 				39C375622989966600F4BC4B /* DeskTimerApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
