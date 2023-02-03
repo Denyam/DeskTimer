@@ -45,3 +45,9 @@ class DTimer: ObservableObject {
         isRunning = true
     }
 }
+
+extension DTimer: Equatable {
+    static func == (lhs: DTimer, rhs: DTimer) -> Bool {
+        return lhs.totalTime == rhs.totalTime
+    }
+}

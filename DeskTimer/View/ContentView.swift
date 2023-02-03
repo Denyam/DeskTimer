@@ -8,10 +8,19 @@
 import SwiftUI
 
 struct ContentView: View {
-    @StateObject var timers = DTimerCollection()
+    @StateObject var timerCollection = {
+        let collection = TimerCollection()
+        collection.timers.append(SingleTimerArrangement(timer: DTimer()))
+
+        return collection
+    }()
     
     var body: some View {
-        TimerView(timer: DTimer())
+        List {
+            ForEach(timerCollection.timers) { arrangement in
+                ArrangementView(arrangement)
+            }
+        }
     }
 }
 

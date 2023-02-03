@@ -7,16 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		39704F42298A878E00D81842 /* TimerArrangement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39704F41298A878E00D81842 /* TimerArrangement.swift */; };
+		39704F44298A93E800D81842 /* SingleTimerArrangement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39704F43298A93E800D81842 /* SingleTimerArrangement.swift */; };
+		39704F46298A996000D81842 /* TimerArrangementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39704F45298A996000D81842 /* TimerArrangementView.swift */; };
+		39704F48298AC25100D81842 /* SingleTimerArrangementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39704F47298AC25100D81842 /* SingleTimerArrangementView.swift */; };
 		39C375622989966600F4BC4B /* DeskTimerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39C375612989966600F4BC4B /* DeskTimerApp.swift */; };
 		39C375642989966600F4BC4B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39C375632989966600F4BC4B /* ContentView.swift */; };
 		39C375662989966700F4BC4B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 39C375652989966700F4BC4B /* Assets.xcassets */; };
 		39C375692989966700F4BC4B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 39C375682989966700F4BC4B /* Preview Assets.xcassets */; };
 		39C375722989973700F4BC4B /* DTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39C375712989973700F4BC4B /* DTimer.swift */; };
-		39C37574298997A700F4BC4B /* DTimerCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39C37573298997A700F4BC4B /* DTimerCollection.swift */; };
+		39C37574298997A700F4BC4B /* TimerCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39C37573298997A700F4BC4B /* TimerCollection.swift */; };
 		39C3757929899B1600F4BC4B /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39C3757829899B1600F4BC4B /* TimerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		39704F41298A878E00D81842 /* TimerArrangement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerArrangement.swift; sourceTree = "<group>"; };
+		39704F43298A93E800D81842 /* SingleTimerArrangement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleTimerArrangement.swift; sourceTree = "<group>"; };
+		39704F45298A996000D81842 /* TimerArrangementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerArrangementView.swift; sourceTree = "<group>"; };
+		39704F47298AC25100D81842 /* SingleTimerArrangementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleTimerArrangementView.swift; sourceTree = "<group>"; };
 		39C3755E2989966600F4BC4B /* DeskTimer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DeskTimer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		39C375612989966600F4BC4B /* DeskTimerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeskTimerApp.swift; sourceTree = "<group>"; };
 		39C375632989966600F4BC4B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -24,7 +32,7 @@
 		39C375682989966700F4BC4B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		39C3756A2989966700F4BC4B /* DeskTimer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DeskTimer.entitlements; sourceTree = "<group>"; };
 		39C375712989973700F4BC4B /* DTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTimer.swift; sourceTree = "<group>"; };
-		39C37573298997A700F4BC4B /* DTimerCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTimerCollection.swift; sourceTree = "<group>"; };
+		39C37573298997A700F4BC4B /* TimerCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerCollection.swift; sourceTree = "<group>"; };
 		39C3757829899B1600F4BC4B /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -80,7 +88,9 @@
 			isa = PBXGroup;
 			children = (
 				39C375712989973700F4BC4B /* DTimer.swift */,
-				39C37573298997A700F4BC4B /* DTimerCollection.swift */,
+				39C37573298997A700F4BC4B /* TimerCollection.swift */,
+				39704F41298A878E00D81842 /* TimerArrangement.swift */,
+				39704F43298A93E800D81842 /* SingleTimerArrangement.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -90,6 +100,8 @@
 			children = (
 				39C375632989966600F4BC4B /* ContentView.swift */,
 				39C3757829899B1600F4BC4B /* TimerView.swift */,
+				39704F45298A996000D81842 /* TimerArrangementView.swift */,
+				39704F47298AC25100D81842 /* SingleTimerArrangementView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -164,10 +176,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				39704F42298A878E00D81842 /* TimerArrangement.swift in Sources */,
 				39C3757929899B1600F4BC4B /* TimerView.swift in Sources */,
 				39C375642989966600F4BC4B /* ContentView.swift in Sources */,
 				39C375722989973700F4BC4B /* DTimer.swift in Sources */,
-				39C37574298997A700F4BC4B /* DTimerCollection.swift in Sources */,
+				39C37574298997A700F4BC4B /* TimerCollection.swift in Sources */,
+				39704F46298A996000D81842 /* TimerArrangementView.swift in Sources */,
+				39704F44298A93E800D81842 /* SingleTimerArrangement.swift in Sources */,
+				39704F48298AC25100D81842 /* SingleTimerArrangementView.swift in Sources */,
 				39C375622989966600F4BC4B /* DeskTimerApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
