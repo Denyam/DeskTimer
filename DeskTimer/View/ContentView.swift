@@ -10,7 +10,7 @@ import SwiftUI
 struct ContentView: View {
     @StateObject var timerCollection = {
         let collection = TimerCollection()
-        collection.timers.append(SingleTimerArrangement(timer: DTimer()))
+        collection.addArrangement(SingleTimerArrangement())
 
         return collection
     }()
@@ -18,7 +18,16 @@ struct ContentView: View {
     var body: some View {
         List {
             ForEach(timerCollection.timers) { arrangement in
-                ArrangementView(arrangement)
+                HStack {
+                    ArrangementView(arrangement)
+                    Button("Delete") {
+                        timerCollection.removeArrangement(arrangement)
+                    }
+                }
+            }
+            
+            Button("Add") {
+                timerCollection.addArrangement(SingleTimerArrangement())
             }
         }
     }

@@ -5,15 +5,10 @@
 //  Created by Denis on 01.02.2023.
 //
 
-import SwiftUI
+import Combine
 
 class SingleTimerArrangement: TimerArrangement {
-    private var timer: DTimer
-
-    init(timer: DTimer) {
-        self.timer = timer
-        super.init()
-    }
+    private lazy var timer = DTimer()
 }
 
 extension SingleTimerArrangement {

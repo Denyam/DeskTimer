@@ -11,7 +11,7 @@ struct TimerView: View {
     @ObservedObject var timer: DTimer
     
     var body: some View {
-        VStack {
+        Form {
             HStack {
                 TextField("Hours", value: $timer.remainingHours, formatter: NumberFormatter())
                     .disabled(timer.isRunning)
@@ -23,12 +23,14 @@ struct TimerView: View {
                 Text(":")
                 TextField("Seconds", value: $timer.remainingSeconds, formatter: NumberFormatter())
                     .disabled(timer.isRunning)
-                
             }
             
             Button("Start") {
                 timer.start()
             }
+        }
+        .alert(isPresented: $timer.isRinging) {
+            Alert(title: Text("Timer elapsed"))
         }
     }
 }

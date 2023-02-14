@@ -11,6 +11,7 @@
 		39704F44298A93E800D81842 /* SingleTimerArrangement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39704F43298A93E800D81842 /* SingleTimerArrangement.swift */; };
 		39704F46298A996000D81842 /* TimerArrangementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39704F45298A996000D81842 /* TimerArrangementView.swift */; };
 		39704F48298AC25100D81842 /* SingleTimerArrangementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39704F47298AC25100D81842 /* SingleTimerArrangementView.swift */; };
+		39901039299064A2008F46BF /* RepeatableTimerArrangement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39901038299064A2008F46BF /* RepeatableTimerArrangement.swift */; };
 		39C375622989966600F4BC4B /* DeskTimerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39C375612989966600F4BC4B /* DeskTimerApp.swift */; };
 		39C375642989966600F4BC4B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39C375632989966600F4BC4B /* ContentView.swift */; };
 		39C375662989966700F4BC4B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 39C375652989966700F4BC4B /* Assets.xcassets */; };
@@ -25,6 +26,7 @@
 		39704F43298A93E800D81842 /* SingleTimerArrangement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleTimerArrangement.swift; sourceTree = "<group>"; };
 		39704F45298A996000D81842 /* TimerArrangementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerArrangementView.swift; sourceTree = "<group>"; };
 		39704F47298AC25100D81842 /* SingleTimerArrangementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleTimerArrangementView.swift; sourceTree = "<group>"; };
+		39901038299064A2008F46BF /* RepeatableTimerArrangement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepeatableTimerArrangement.swift; sourceTree = "<group>"; };
 		39C3755E2989966600F4BC4B /* DeskTimer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DeskTimer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		39C375612989966600F4BC4B /* DeskTimerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeskTimerApp.swift; sourceTree = "<group>"; };
 		39C375632989966600F4BC4B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -91,6 +93,7 @@
 				39C37573298997A700F4BC4B /* TimerCollection.swift */,
 				39704F41298A878E00D81842 /* TimerArrangement.swift */,
 				39704F43298A93E800D81842 /* SingleTimerArrangement.swift */,
+				39901038299064A2008F46BF /* RepeatableTimerArrangement.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -178,6 +181,7 @@
 			files = (
 				39704F42298A878E00D81842 /* TimerArrangement.swift in Sources */,
 				39C3757929899B1600F4BC4B /* TimerView.swift in Sources */,
+				39901039299064A2008F46BF /* RepeatableTimerArrangement.swift in Sources */,
 				39C375642989966600F4BC4B /* ContentView.swift in Sources */,
 				39C375722989973700F4BC4B /* DTimer.swift in Sources */,
 				39C37574298997A700F4BC4B /* TimerCollection.swift in Sources */,

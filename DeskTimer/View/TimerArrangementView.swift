@@ -31,6 +31,6 @@ struct ArrangementView: TimerArrangementView {
 
 struct ArrangementView_Previews: PreviewProvider {
     static var previews: some View {
-        ArrangementView(SingleTimerArrangement(timer: DTimer()))
+        ArrangementView(SingleTimerArrangement())
     }
 }
