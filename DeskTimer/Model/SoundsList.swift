@@ -26,6 +26,7 @@ import Cocoa
 
 class SoundsList: NSObject
 {
+    @objc
 	class func sounds() -> [String]
 	{
 		var result: [String] = [];
@@ -33,25 +34,22 @@ class SoundsList: NSObject
 		let soundDirPath = "/System/Library/Sounds";
 		let recognisedSoundExtension = "aiff";
 		
-		let url = NSURL.fileURLWithPath(soundDirPath, isDirectory: true);
+        let url = NSURL.fileURL(withPath: soundDirPath, isDirectory: true);
 		
-		let errorPtr = NSErrorPointer();
-		var possibleDirList: [AnyObject]?
+		var possibleDirList: [URL]?
 		do {
-			possibleDirList = try NSFileManager.defaultManager().contentsOfDirectoryAtURL(url, includingPropertiesForKeys: [], options: NSDirectoryEnumerationOptions())
-		} catch let error as NSError {
-			errorPtr.memory = error
+            possibleDirList = try FileManager.default.contentsOfDirectory(at: url, includingPropertiesForKeys: [], options: FileManager.DirectoryEnumerationOptions())
+		} catch {
 			possibleDirList = nil
 		};
 		
 		if let dirList = possibleDirList {
-			for fileUrl in dirList as! [NSURL] {
-				let fileNameExtension = fileUrl.pathExtension ?? "";
+			for fileUrl in dirList  {
+				let fileNameExtension = fileUrl.pathExtension;
 				
-				if fileNameExtension == recognisedSoundExtension {
-					if let fileName = fileUrl.URLByDeletingPathExtension?.lastPathComponent {
-						result.append(fileName);
-					}
+                if fileNameExtension == recognisedSoundExtension {
+                    let fileName = fileUrl.deletingPathExtension().lastPathComponent
+                    result.append(fileName)
 				}
 			}
 		} else {
